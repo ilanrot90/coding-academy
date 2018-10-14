@@ -1,0 +1,253 @@
+/*
+// COLORS
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+*/
+@import url('../lib/css/bootstrap.css');
+@import url('../lib/album/album.css');
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #777;
+}
+
+.backgroand-image {
+    background-image: linear-gradient(to right bottom, rgba(28, 31, 78, 0.212), rgba(0, 110, 255, 0.219)), url(../img/back.jpg);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: -10;
+    background-position: center;
+    background-size: cover;
+    top: 0;
+    left: 0;
+}
+
+/*navbar*/
+.navbar-brand {
+    margin-right: 2rem;
+}
+
+/*modal*/
+.model{
+    height: 60rem;
+}
+
+.form__group {
+    margin-bottom: 2rem; 
+}
+
+.form__input {
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    margin: 0 auto;
+    border-radius: 3rem;
+    background-color: #f7f7f7;
+    border: 3px solid transparent;
+    width: 90%;
+    display: block;
+    transition: all .2s; 
+}
+
+.form__input::-webkit-input-placeholder {
+    color: #999; 
+}
+
+.form__input:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    border: 3px solid #7ed56f; 
+}
+
+.form__input:focus:invalid {
+    border: 3px solid #ff7730;
+}
+  
+.form__label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    display: inline-block;
+    transform: translateX(-13rem);
+    transition: all .3s;
+ }
+  
+.form__input:placeholder-shown + .form__label {
+    opacity: 0;
+    transform: translate(-13rem, -4rem);
+    visibility: hidden;
+}
+.modal-body {
+    padding: 5rem;
+    position: relative;
+}
+
+.modal-footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.album {
+    background-color: rgba(255, 255, 255, 0.068) !important;
+}
+
+.text-muted {
+    text-align: center;
+}
+
+[class^="col-"]:not(:last-child) {
+    margin-bottom: 2rem;    
+}
+
+.card-img {
+    height: 38rem;
+    transition: all .3s;
+}
+
+.card:hover .card-img{
+    filter: blur(3px) brightness(70%);
+}
+.card:hover .card-text{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-rating {
+    color: gold;
+}
+
+.card-img-overlay {
+    text-align: center;
+}
+
+.card-text {
+    opacity: 0;
+    transform: translateY(5rem);
+    transition: all .3s;
+    margin-top: 10%;
+}
+
+.card-time {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.card-genre {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+}
+
+.card__delete {
+    position: absolute;
+    top: -3rem;
+    right: 0;
+    color: black;
+    font-size: 3rem
+}
+
+.card-link:link, .card-link:visited {
+    color: inherit;
+    font-size: 1.6rem;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(28, 31, 78);
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin-bottom: 3rem;
+    transition: all .2s; 
+}
+  
+.card-link:hover {
+    background-color: rgba(28, 31, 78);
+    color: #fff;
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.507); 
+}
+  
+.card-link:active {
+    color: #fff;
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.623); 
+}
+
+.text-muted {
+     position: relative;
+ }
+ .footer__copyright {
+     color: #fff;
+     border-top: 1px solid #f7f7f7;
+     padding-top: 1rem;
+     font-size: 1rem;
+     width: 55%;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+ }
+.contect__link {
+    transition: all .15s; 
+}
+.contect__link:visited, .contect__link:link {
+    color: #f7f7f7;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block; 
+}
+.contect__link:hover, .contect__link:active {
+    color: rgb(163, 0, 192);
+    text-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.6);
+    transform: scale(1.1) translateY(-2px); 
+}
+
+#navbarHeader {
+    max-height: 13rem;
+    transition: all .6s;
+    z-index: 1000;
+}
+
+.text-4 {
+    text-align: center;
+}
+
+.btn-text {
+    background-color: rgba(28, 31, 78);
+    color: #fff;
+    outline: none;
+    margin-top: 2.5rem;
+}
+
+.scrollToTop {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 2rem;
+}
