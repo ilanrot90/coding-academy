@@ -10,5 +10,6 @@ async function getMovies(movieNames, callback) {
 }
 //get single movie details
 function getDetails(movieName) {
-    return $.getJSON(`https://www.omdbapi.com/?t=${movieName}&apikey=thewdb`);
+    let host = 'https://cors-anywhere.herokuapp.com/';
+    return $.getJSON(`${host}https://www.omdbapi.com/?t=${movieName}&apikey=thewdb`);
 }
