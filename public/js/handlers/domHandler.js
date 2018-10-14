@@ -1,31 +1,4 @@
-//create element
-function createCards(movies) {
-    let cardsObj = [];
-    movies.forEach(movie => {
-        let data = {
-            title: movie.Title,
-            poster: movie.Poster,
-            id: movie.imdbID,
-            year: movie.Year,
-            rating: movie.imdbRating,
-            runtime: movie.Runtime,
-            plot: movie.Plot,
-            link: movie.Website,
-            genre: movie.Genre
-        }
-        cardsObj.push(data)
-    });
-
-    return cardsObj;
-}
-
-//render elements to dom
-function randerCards(movies) {
-    movies.forEach(movieItem => {
-        createCardContent(movieItem);
-    })
-}
-
+//create card
 function createCardContent(card) {
     let newMovie =  $(`<div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="card bg-dark text-white">
@@ -49,13 +22,9 @@ function createCardContent(card) {
     
     $('.album__row').append(newMovie);
 }
-//delete card
-function deleteMovie(t) {
-    let movieTitle = $(t ).find( ".card-title" ).text();
-    let movieId = $(t).parent().parent().data( "id" );
-    let localNames = getLocalMovies().filter(movie => movie !== movieTitle);
-
-    $(t).parent().parent().remove();
-    localStorage.setItem("movies", JSON.stringify(localNames));
-    $('.album__row').find(`[data-id='${movieId}']`).remove()
+//render cards
+function randerCards(movies) {
+    movies.forEach(movieItem => {
+        createCardContent(movieItem);
+    })
 }
