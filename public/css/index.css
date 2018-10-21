@@ -50,7 +50,21 @@ body {
 .navbar-brand {
     margin-right: 2rem;
 }
+/*
+@media (max-width: 580px) {
+    .collapse .row {
+        position: relative;
+    }
 
+    .contect__list {
+        height: 2.5rem;
+    }
+    [class*=item--] {
+        position: absolute;
+        height: 2.5rem;
+    }
+}
+*/
 /*modal*/
 .model{
     height: 60rem;
@@ -114,6 +128,54 @@ body {
     right: 0;
 }
 
+/*confirm box*/
+.confirm {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.205);
+    z-index: 5;
+}
+
+.confirm__content {
+    width: 40%;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+}
+
+.confirm__text {
+    font-size: 2.2rem;
+    padding: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.confirm__btn {
+    margin-bottom: 2rem;
+    width: 8rem;
+}
+
+.confirm__btn:not(:last-child){
+    margin-right: 1.5rem;
+}
+
+@media(max-width: 768px){
+    .confirm__content {
+        width: 60%;
+    }
+}
+
+@media(max-width: 576px){
+    .confirm__content {
+        width: 80%;
+    }
+}
+/*/////////////////////////////////////*/
 .album {
     background-color: rgba(255, 255, 255, 0.068) !important;
 }

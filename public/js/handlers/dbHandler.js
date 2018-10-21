@@ -22,7 +22,7 @@ function updateList(movie) {
 
     localStorage.setItem("movies", JSON.stringify(movies));
 }
-
+/*
 //create movie object
 function createCards(movies) {
     let cardsObj = [];
@@ -43,3 +43,4 @@ function createCards(movies) {
 
     return cardsObj;
 }
+*/

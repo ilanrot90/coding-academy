@@ -20,11 +20,9 @@ function createCardContent(card) {
                     </div>`)
     newMovie.data('id', card.id);
     
-    $('.album__row').append(newMovie);
+    randerCard(newMovie);
 }
 //render cards
-function randerCards(movies) {
-    movies.forEach(movieItem => {
-        createCardContent(movieItem);
-    })
+function randerCard(movie) {
+    $('.album__row').append(movie);
 }

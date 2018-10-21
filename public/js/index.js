@@ -1,13 +1,7 @@
-async function init() {
+function init() {
     var moviesNames = getLocalMovies();
 
-    let movies = await getMovies(moviesNames, async (movieName) => {
-        return await getDetails(movieName)
-    })
-
-    let cards = createCards(movies);
-    console.log(cards);
-    randerCards(cards);
+    createCards(moviesNames);
 }
 //add new movie
 async function submitMovie(el) {
@@ -15,29 +9,38 @@ async function submitMovie(el) {
 
     let movie = await getDetails(movieName); 
 
-    if(movie.Error) {
+    if(!movie.title) {
         $('.form__input').val('');
         $(el).popover('show');
         return
     }
 
-    let movieInfo = createCards([movie]);
-    createCardContent(...movieInfo); 
-    console.log(movieInfo);
-    updateList(movieInfo[0].title)
+    createCardContent(movie);
+    updateList(movie.title)
 
     $('.form__input').val('');
     $('#addMovieModal').modal('hide');
+    $('.msg').addClass( "show" );
 }
 //delete card
 function deleteMovie(t) {
-    let movieTitle = $(t ).find( ".card-title" ).text();
-    let movieId = $(t).parent().parent().data( "id" );
+    let movieCard = $(t).parent().parent();
+    $(".confirm__btn.btn-primary").data('movie', movieCard);
+    $(".confirm").removeClass("d-none");
+}
+
+function confirmDelete(btn) {
+    $(".confirm").addClass("d-none");
+    if(!$(btn).data("movie")) return;
+
+    let movie = $(btn).data("movie");
+    
+    let movieTitle = movie.find( ".card-title" ).text();   
     let localNames = getLocalMovies().filter(movie => movie !== movieTitle);
 
-    $(t).parent().parent().remove();
+    movie.remove();
     localStorage.setItem("movies", JSON.stringify(localNames));
-    $('.album__row').find(`[data-id='${movieId}']`).remove()
+    $('.album__row').find(`[data-id='${movie.data( "id" )}']`).remove()
 }
 
 //scroll up
